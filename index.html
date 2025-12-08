@@ -1,0 +1,1715 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ariane Lesnyak - AI Content Specialist Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --background: hsl(0 0% 100%);
+      --foreground: hsl(0 0% 10%);
+      --primary: hsl(215 100% 14%);
+      --accent: hsl(337 85% 51%);
+      --muted-foreground: hsl(0 0% 45%);
+      --border: hsl(0 0% 90%);
+      --destructive: hsl(0 84% 60%);
+      --success: hsl(142 76% 36%);
+      --muted: hsl(0 0% 96%);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--background);
+      color: var(--foreground);
+      scroll-behavior: smooth;
+    }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+    /* Navigation */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); box-shadow: 0 2px 10px rgba(0,0,0,0.1); padding: 1rem; }
+    .nav-container { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo img { height: 50px; width: auto; object-fit: contain; }
+    .nav-links { display: flex; align-items: center; gap: 1rem; }
+    .nav-links a { font-size: 12px; font-weight: 600; color: var(--primary); text-decoration: none; white-space: nowrap; }
+    .nav-btn { background: var(--accent); color: white; padding: 0.5rem 1rem; border-radius: 9999px; font-size: 12px; font-weight: 600; text-transform: uppercase; text-decoration: none; transition: all 0.3s; }
+    .nav-btn:hover { opacity: 0.9; }
+    .mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; }
+
+    /* Hero */
+    .hero { min-height: 120vh; display: flex; align-items: center; justify-content: center; padding: 8rem 1.5rem 4rem; background: rgba(0,0,0,0.02); }
+    .hero-container { max-width: 1280px; width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 3rem; }
+    .hero-content { flex: 1; }
+    .hero-title { font-size: 4rem; font-weight: 700; color: var(--primary); margin-bottom: 1rem; }
+    .hero-subtitle { font-size: 1.75rem; margin-bottom: 1rem; }
+    .hero-subtitle .primary { color: var(--primary); }
+    .hero-subtitle .accent { color: var(--accent); font-weight: 700; }
+    .hero-description { font-size: 1.125rem; color: var(--muted-foreground); max-width: 600px; margin-bottom: 2rem; }
+    .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary { background: var(--accent); color: white; padding: 0.75rem 2rem; border-radius: 0.5rem; font-weight: 700; text-transform: uppercase; font-size: 14px; text-decoration: none; border: 2px solid var(--accent); transition: all 0.3s; }
+    .btn-primary:hover { background: white; color: var(--accent); }
+    .btn-secondary { background: white; color: var(--accent); padding: 0.75rem 2rem; border-radius: 0.5rem; font-weight: 700; text-transform: uppercase; font-size: 14px; text-decoration: none; border: 2px solid var(--accent); transition: all 0.3s; }
+    .btn-secondary:hover { background: var(--accent); color: white; }
+    .hero-image { flex: 1; display: flex; justify-content: center; align-items: center; }
+    .hero-image img { max-width: 400px; width: 100%; height: auto; animation: float 3s ease-in-out infinite; display: block; }
+    
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+
+    .section-title { font-size: 38px; font-weight: 600; color: var(--primary); text-align: center; margin-bottom: 3rem; }
+
+    /* About */
+    .about { padding: 5rem 1.5rem; background: rgba(0,0,0,0.02); }
+    .about-container { max-width: 1152px; margin: 0 auto; }
+    .about-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+    .about-card { background: white; border-radius: 0.5rem; padding: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); position: relative; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .about-card:hover { transform: translateY(-5px); box-shadow: 0 8px 16px rgba(0,0,0,0.15); }
+    .about-card h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--primary); }
+    .about-card p { color: var(--muted-foreground); line-height: 1.7; margin-bottom: 2rem; }
+    .about-icon { position: absolute; bottom: 1rem; right: 1rem; width: 48px; height: 48px; }
+
+    /* Novos estilos para o ícone de aperto de mãos */
+    .handshake-icon .hand-red { 
+      color: var(--accent); 
+      animation: shakeHandRed 2.5s infinite ease-in-out; 
+      transform-origin: 70% 90%;
+    }
+    .handshake-icon .hand-blue { 
+      color: var(--primary); 
+      animation: shakeHandBlue 2.5s infinite ease-in-out; 
+      transform-origin: 30% 90%;
+    }
+    @keyframes shakeHandRed {
+      0%, 100% { transform: rotate(0deg) translateY(0) translateX(0); }
+      25% { transform: rotate(-3deg) translateY(-5px) translateX(2px); }
+      50% { transform: rotate(0deg) translateY(0) translateX(0); }
+      75% { transform: rotate(2deg) translateY(3px) translateX(-1px); }
+    }
+    @keyframes shakeHandBlue {
+      0%, 100% { transform: rotate(0deg) translateY(0) translateX(0); }
+      25% { transform: rotate(2deg) translateY(3px) translateX(-1px); }
+      50% { transform: rotate(0deg) translateY(0) translateX(0); }
+      75% { transform: rotate(-3deg) translateY(-5px) translateX(2px); }
+    }
+    
+    .arrow-up { animation: ascendEvolve 2s ease-in-out infinite; }
+    @keyframes ascendEvolve { 0%, 100% { transform: translateY(0); opacity: 0.7; } 50% { transform: translateY(-3px); opacity: 1; } }
+
+    /* Impacts com bordas */
+    .impacts { padding: 5rem 1.5rem; }
+    .impacts-container { max-width: 1152px; margin: 0 auto; }
+    .impacts-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+    .impact-item { 
+      text-align: center; 
+      padding: 1.5rem; 
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    .impact-item:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transform: translateY(-2px);
+    }
+    .impact-icon { width: 64px; height: 64px; margin: 0 auto 1rem; border-radius: 50%; background: rgba(227,44,109,0.1); display: flex; align-items: center; justify-content: center; }
+    .impact-icon svg { width: 32px; height: 32px; color: var(--accent); }
+    .impact-value { font-size: 2.5rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; }
+    .impact-label { font-size: 14px; color: var(--muted-foreground); }
+
+    /* Case Studies */
+    .case-studies { padding: 5rem 1.5rem; background: rgba(0,0,0,0.02); }
+    .case-studies-container { max-width: 1152px; margin: 0 auto; }
+    .case-card { background: white; border-radius: 0.5rem; border: 1px solid var(--border); overflow: hidden; margin-bottom: 2rem; transition: box-shadow 0.3s, transform 0.3s; }
+    .case-card:hover { box-shadow: 0 10px 40px rgba(0,0,0,0.1); transform: translateY(-3px); }
+    .case-card-content { padding: 2rem; }
+    .case-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--foreground); text-align: left; }
+    .case-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .case-box { background: rgba(0,0,0,0.02); border-radius: 0.5rem; padding: 1rem; transition: transform 0.3s ease; min-height: 180px; display: flex; flex-direction: column; }
+    .case-box.results, .case-box.metrics { min-height: 200px; }
+    .case-box:hover { transform: scale(1.02); }
+    .case-box-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
+    .case-box-header svg { width: 20px; height: 20px; }
+    .case-box-header.challenge svg { color: var(--destructive); }
+    .case-box-header.solution svg { color: var(--primary); }
+    .case-box-header.before svg { color: var(--destructive); }
+    .case-box-header.after svg { color: var(--success); }
+    .case-box-header.results svg { color: var(--primary); }
+    .case-box-header.metrics svg { color: var(--accent); }
+    .case-box-header h4 { font-size: 1rem; font-weight: 600; }
+    .case-box p { font-size: 14px; line-height: 1.6; color: var(--foreground); flex-grow: 1; }
+
+    .case-box.before { background: rgba(239,68,68,0.05); border: 1px solid rgba(239,68,68,0.2); }
+    .case-box.after { background: rgba(34,197,94,0.05); border: 1px solid rgba(34,197,94,0.2); }
+    .case-box.results { background: rgba(26,48,102,0.05); border: 1px solid rgba(26,48,102,0.2); }
+    .case-box.metrics { background: rgba(227,44,109,0.05); border: 1px solid rgba(227,44,109,0.2); }
+
+    /* Safari Mock - ALTURA AUMENTADA PARA CASE STUDY 1 */
+    .safari-mock { 
+      border-radius: 0.5rem; 
+      overflow: hidden; 
+      border: 1px solid var(--border); 
+      margin-top: 1rem; 
+      height: auto; /* Altura flexível */
+      min-height: 210px; /* Altura mínima aumentada */
+      display: flex;
+      flex-direction: column;
+    }
+    .case-study-1 .safari-mock {
+      height: 280px; /* Altura específica para o case study 1 */
+    }
+    .safari-header { 
+      background: rgba(0,0,0,0.05); 
+      padding: 0.5rem 0.75rem; 
+      display: flex; 
+      align-items: center; 
+      gap: 0.5rem; 
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .safari-dots { display: flex; gap: 6px; }
+    .safari-dot { width: 12px; height: 12px; border-radius: 50%; }
+    .safari-dot.red { background: #ff5f57; }
+    .safari-dot.yellow { background: #ffbd2e; }
+    .safari-dot.green { background: #27c93f; }
+    .safari-url { flex: 1; background: white; border: 1px solid var(--border); border-radius: 4px; padding: 4px 8px; font-size: 11px; color: var(--muted-foreground); }
+    .safari-content { 
+      background: white; 
+      padding: 1rem; 
+      flex-grow: 1;
+      overflow: hidden; 
+      position: relative; 
+      font-size: 11px;
+    }
+    .safari-content.compact { min-height: 100px; }
+
+    /* Animation Tags - Case Study 1 */
+    .tag-bracket {
+      font-weight: 600;
+      padding: 2px 4px;
+      border-radius: 3px;
+      display: inline-block;
+      margin: 0 1px;
+      transition: all 0.3s ease;
+      font-family: monospace;
+    }
+    .tag-bracket.correct {
+      color: #5A9BD4;
+      background-color: #EAF2F8;
+    }
+    .tag-bracket.error {
+      color: #e74c3c;
+      background: rgba(231, 76, 60, 0.1);
+      position: relative;
+    }
+    .tag-bracket.fixing {
+      animation: tagPulse 0.8s ease-in-out;
+    }
+    @keyframes tagPulse {
+      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(90, 155, 212, 0.4); }
+      70% { transform: scale(1.05); box-shadow: 0 0 0 5px rgba(90, 155, 212, 0); }
+      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(90, 155, 212, 0); }
+    }
+    .word {
+      transition: all 0.3s ease;
+      position: relative;
+      display: inline-block;
+    }
+    .word.error {
+      color: #e74c3c;
+      text-decoration: underline;
+      text-decoration-style: wavy;
+      text-decoration-color: #e74c3c;
+    }
+    .word.correct {
+      color: var(--foreground);
+      font-weight: 600;
+    }
+    .typing-cursor {
+      position: absolute;
+      right: -2px;
+      width: 2px;
+      height: 18px;
+      background-color: var(--foreground);
+      animation: blink 0.7s infinite;
+      display: none;
+    }
+    .typing-cursor.visible { display: block; }
+    @keyframes blink { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }
+
+    /* Animation Tags - Geral */
+    .tag-pulse-blue { color: hsl(210 100% 50%); background: hsl(210 100% 95%); padding: 1px 4px; border-radius: 3px; display: inline-block; }
+    .tag-pulse-red { color: hsl(0 70% 50%); background: hsl(0 70% 95%); padding: 1px 4px; border-radius: 3px; display: inline-block; }
+    .tag-pulse-red.pulsing { animation: errorPulse 1.5s ease-in-out infinite; }
+    .tag-correct { color: hsl(210 100% 50%); background: hsl(210 100% 95%); padding: 1px 4px; border-radius: 3px; display: inline-block; }
+    .error-text { color: hsl(0 70% 50%); border-bottom: 2px dotted hsl(0 70% 50%); position: relative; }
+    .error-text.pulsing { animation: errorPulse 1.5s ease-in-out infinite; }
+    .corrected-text { color: hsl(210 100% 50%); font-weight: 600; }
+    .typing { color: hsl(210 100% 50%); background: hsl(210 100% 95%); padding: 1px 4px; border-radius: 3px; }
+
+    @keyframes tagPulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.05); } }
+    @keyframes errorPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+    /* Tooltips para Case Study 2 - ATUALIZADO PARA ANIMAÇÃO AUTOMÁTICA */
+    .tooltip-case2 {
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.9);
+      color: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 10px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      margin-bottom: 4px;
+      z-index: 10;
+    }
+    .tooltip-case2.show { opacity: 1; }
+    .tooltip-case2::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 4px solid transparent;
+      border-top-color: rgba(0,0,0,0.9);
+    }
+    
+    .chat-message { background: rgba(0,0,0,0.05); padding: 8px; border-radius: 8px; max-width: 80%; margin-bottom: 8px; }
+    .chat-buttons { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 4px; }
+    .chat-btn { 
+      padding: 4px 8px; 
+      background: rgba(227,44,109,0.2); 
+      color: var(--accent); 
+      border-radius: 9999px; 
+      font-size: 9px; 
+      font-weight: 600; 
+      cursor: pointer; 
+      transition: all 0.3s; 
+      border: none; 
+    }
+    .chat-btn:hover { background: var(--accent); color: white; }
+    .chat-btn-blue {
+      background: hsl(210 100% 95%);
+      color: hsl(210 100% 50%);
+      border: 1px solid hsl(210 100% 80%);
+    }
+    .chat-btn-blue:hover {
+      background: hsl(210 100% 50%);
+      color: white;
+    }
+
+    .scroll-animation { animation: scrollUp 8s linear infinite; }
+    @keyframes scrollUp { 0% { transform: translateY(0); } 100% { transform: translateY(-100%); } }
+
+    /* Progress Bar - Ajustado para múltiplas métricas */
+    .metrics-bars { margin-top: 0.5rem; }
+    .metrics-bar { margin-bottom: 0.75rem; }
+    .metrics-header { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 0.25rem; }
+    .metrics-label { color: var(--muted-foreground); }
+    .metrics-value { font-weight: 700; color: var(--accent); }
+    .metrics-track { width: 100%; height: 12px; background: var(--muted); border-radius: 9999px; overflow: hidden; }
+    .metrics-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--primary)); border-radius: 9999px; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+
+    /* Experience & Education */
+    .experience, .education { padding: 5rem 1.5rem; background: rgba(0,0,0,0.02); }
+    .experience-container, .education-container { max-width: 1152px; margin: 0 auto; }
+    .experience-card, .education-card { background: white; padding: 1.5rem; border-radius: 0.5rem; border: 1px solid var(--border); margin-bottom: 2rem; transition: box-shadow 0.3s; }
+    .experience-card:hover, .education-card:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+    .experience-header, .education-header { display: flex; gap: 1rem; }
+    .experience-icon, .education-icon { width: 48px; height: 48px; background: rgba(26,48,102,0.1); border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .experience-icon svg, .education-icon svg { width: 24px; height: 24px; color: var(--primary); }
+    .experience-content h3, .education-content h3 { font-size: 1.25rem; font-weight: 700; }
+    .experience-company, .education-institution { font-size: 14px; font-weight: 500; color: var(--primary); }
+    .experience-period, .education-year { font-size: 14px; color: var(--muted-foreground); margin-bottom: 0.75rem; }
+
+    /* Skills - Ajustado para 3 linhas */
+    .skills { padding: 5rem 1.5rem; }
+    .skills-container { max-width: 1152px; margin: 0 auto; }
+    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+    .skills-column h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; text-align: center; }
+    .skills-column.hard h3 { color: var(--primary); }
+    .skills-column.soft h3 { color: var(--accent); }
+    .skills-tags { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
+    .skill-tag { padding: 0.5rem 1rem; border: 2px solid; border-radius: 0.375rem; font-size: 14px; font-weight: 500; transition: background 0.3s; }
+    .skills-column.hard .skill-tag { border-color: var(--primary); }
+    .skills-column.soft .skill-tag { border-color: var(--accent); }
+
+    /* Tools */
+    .tools { padding: 5rem 1.5rem; background: rgba(0,0,0,0.02); }
+    .tools-container { max-width: 1152px; margin: 0 auto; }
+    .tools-tags { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
+    .tool-tag { padding: 0.5rem 1rem; background: white; border: 1px solid var(--border); border-radius: 0.375rem; font-size: 14px; font-weight: 500; transition: box-shadow 0.3s; }
+
+    /* Languages */
+    .languages { padding: 5rem 1.5rem; }
+    .languages-container { max-width: 1152px; margin: 0 auto; }
+    .languages-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; }
+    .language-card { display: flex; align-items: center; gap: 0.75rem; padding: 1rem 1.5rem; background: white; border: 2px solid var(--border); border-radius: 0.5rem; transition: border-color 0.3s, transform 0.3s; }
+    .language-card:hover { border-color: var(--primary); transform: scale(1.05); }
+    .flag-icon { font-size: 28px; line-height: 1; }
+    .language-name { font-weight: 600; }
+    .language-level { font-size: 14px; color: var(--muted-foreground); }
+
+    /* Collaborations - ATUALIZADO COM IMAGENS REAIS */
+    .collaborations { padding: 5rem 1.5rem; overflow: hidden; background: rgba(0,0,0,0.02); }
+    .collaborations-container { max-width: 1152px; margin: 0 auto; }
+    .collab-row {
+      position: relative;
+      overflow: hidden;
+      padding: 1rem 0;
+    }
+    .collab-track {
+      display: flex;
+      gap: 2rem;
+      width: max-content;
+      animation: slideRightToLeft 30s linear infinite;
+    }
+    @keyframes slideRightToLeft {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .collab-logo {
+      width: 120px;
+      height: 60px;
+      background: white;
+      border-radius: 0.5rem;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+      padding: 8px;
+      box-sizing: border-box;
+    }
+    .collab-logo img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+    .collab-logo:hover {
+      border-color: var(--primary);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transform: translateY(-2px);
+    }
+
+    /* Footer - COMPLETAMENTE ATUALIZADO */
+    .footer { 
+      background: var(--primary); 
+      padding: 3rem 1.5rem; 
+      position: relative;
+      background-image: url('https://raw.githubusercontent.com/wastehabit/portbitget/main/team-bg.webp');
+      background-size: cover;
+      background-position: center;
+      background-blend-mode: overlay;
+      background-color: rgba(26, 48, 102, 0.9);
+    }
+    
+    .footer-content {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .footer-section {
+      flex: 1;
+    }
+    
+    .footer-section h4 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 28.8px;
+      letter-spacing: 0;
+      color: #ffffff;
+      margin-bottom: 0.75rem;
+    }
+    
+    .footer-divider {
+      width: 60px;
+      height: 2px;
+      background-color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+    
+    .footer-services, .footer-contact {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .footer-services li, .footer-contact li {
+      margin-bottom: 0.75rem;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 23.8px;
+      letter-spacing: 0;
+      color: #ffffff;
+    }
+    
+    .footer-contact a {
+      color: #ffffff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .footer-contact a:hover {
+      color: var(--accent);
+    }
+    
+    .footer-get-in-touch p {
+      font-family: 'Poppins', sans-serif;
+      color: #ffffff;
+      font-size: 14px;
+      line-height: 23.8px;
+      margin-bottom: 0.5rem;
+    }
+    
+    .footer-divider-line {
+      width: 100%;
+      height: 3px;
+      background-color: #ffffff;
+      margin: 2rem 0;
+    }
+    
+    .footer-copyright {
+      max-width: 1280px;
+      margin: 0 auto;
+      text-align: left;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 23.8px;
+      letter-spacing: 0;
+      color: #ffffff;
+      padding-top: 1rem;
+    }
+
+    .back-to-top { position: fixed; bottom: 2rem; right: 2rem; z-index: 50; width: 48px; height: 48px; background: var(--accent); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.2); cursor: pointer; opacity: 0; transform: translateX(64px); transition: all 0.3s; border: none; }
+    .back-to-top.visible { opacity: 1; transform: translateX(0); }
+
+    /* Ícone de mão para Case Study 3 */
+    .hand-pointer {
+      display: inline-block;
+      margin-left: 8px;
+      animation: pointHand 2s infinite ease-in-out;
+      transform-origin: 70% 90%;
+    }
+    
+    @keyframes pointHand {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-3px) rotate(10deg); }
+    }
+
+    @media (max-width: 1024px) { 
+      .nav-links, .nav-btn { display: none; } 
+      .mobile-menu-btn { display: block; } 
+      .impacts-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-content {
+        flex-direction: column;
+      }
+      .collab-logo {
+        width: 100px;
+        height: 50px;
+      }
+    }
+    
+    @media (max-width: 768px) { 
+      .hero-container { flex-direction: column; text-align: center; } 
+      .about-grid, .case-row, .skills-grid { grid-template-columns: 1fr; }
+      .footer-copyright {
+        text-align: center;
+      }
+      .collab-track {
+        gap: 1rem;
+      }
+      .collab-logo {
+        width: 90px;
+        height: 45px;
+      }
+      .case-study-1 .safari-mock {
+        height: 250px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .collab-logo {
+        width: 80px;
+        height: 40px;
+      }
+      .case-study-1 .safari-mock {
+        height: 230px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="https://raw.githubusercontent.com/wastehabit/portbitget/main/Gemini_Generated_Image_mk3r2nmk3r2nmk3r.png" alt="Ariane Lesnyak Logo" onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'font-weight:700;color:var(--primary)\'>AL</span>'">
+      </div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#impacts">Impacts</a>
+        <a href="#case-studies">Case Studies</a>
+        <a href="#experience">Work History</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#tools">Tools</a>
+        <a href="#languages">Languages</a>
+        <a href="#collaborations">Collaborations</a>
+      </div>
+      <a href="#contact" class="nav-btn">Get In Touch</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-container">
+      <div class="hero-content">
+        <h1 class="hero-title">Ariane Lesnyak —</h1>
+        <h2 class="hero-subtitle">
+          <span class="primary">transforming AI outputs into </span>
+          <span class="accent">human-first content.</span>
+        </h2>
+        <p class="hero-description" align="justify">AI Content Rewriter & QA Expert with +10 years working with the EN>PT-BR pair. Expert in AI content rewriting via precise MTPE and linguistic quality assurance, blending linguistic precision with creative flow to ensure coherence, tone, and cultural relevance for global projects.</p>
+        <div class="hero-buttons">
+          <a href="#case-studies" class="btn-primary">View Case Studies</a>
+          <a href="resume.pdf" download class="btn-secondary">Résumé</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://raw.githubusercontent.com/wastehabit/portbitget/main/heroportmonisa.png" alt="Brain Illustration">
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="about-container">
+      <h2 class="section-title">About</h2>
+      <div class="about-grid">
+        <div class="about-card vision">
+          <h3>Vision</h3>
+          <p align="justify">As a native PT-BR linguist with 10+ years in writing, translating, and editing, I use my linguistics-tech background to bridge machine precision and human creativity, turning raw outputs into vivid, audience-resonant stories.</p>
+<p>My systematic approach reduces linguistic errors by approximately 70%, ensuring content resonates with Brazilian audiences while preserving the original intent and clarity.</p>
+          <svg class="about-icon" viewBox="0 0 48 48" fill="none">
+            <circle cx="24" cy="24" r="20" stroke="var(--primary)" stroke-width="2"/>
+            <circle cx="24" cy="24" r="12" stroke="var(--primary)" stroke-width="2"/>
+            <circle cx="24" cy="24" r="4" fill="var(--primary)"/>
+            <path class="arrow-up" d="M20 30 L24 26 M28 30 L24 26" stroke="var(--accent)" stroke-width="2"/>
+            <path class="arrow-up" d="M20 18 L24 22 M28 18 L24 22" stroke="var(--accent)" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="about-card why-me" align="justify">
+          <h3>Why Me</h3>
+          <p>I balance linguistic rigor and practical AI experience that allows me to work efficiently at scale without losing meaning. I don't approach AI rewriting as simple correction, but as refinement, ensuring content aligns with real human expectations.</p>
+<p>I'm used to handling large volumes and strict guidelines while maintaining consistency and clarity. My reliability under complexity means I anticipate issues, adapt quickly, and deliver content that feels human, even when it starts with a machine.</p>
+          <div class="about-icon handshake-icon">
+            <i class="fas fa-handshake hand-red"></i>
+            <i class="fas fa-handshake hand-blue"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="impacts" class="impacts">
+    <div class="impacts-container">
+      <h2 class="section-title">Impacts</h2>
+      <div class="impacts-grid">
+        <div class="impact-item">
+          <div class="impact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline></svg></div>
+          <div class="impact-value">70%</div>
+          <div class="impact-label">Reduction in linguistic errors</div>
+        </div>
+        <div class="impact-item">
+          <div class="impact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg></div>
+          <div class="impact-value">1M+</div>
+          <div class="impact-label">AI-generated words refined</div>
+        </div>
+        <div class="impact-item">
+          <div class="impact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg></div>
+          <div class="impact-value">95%+</div>
+          <div class="impact-label">Client satisfaction rate</div>
+        </div>
+        <div class="impact-item">
+          <div class="impact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+          <div class="impact-value">100+</div>
+          <div class="impact-label">Multimedia hours reviewed</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="case-studies" class="case-studies">
+    <div class="case-studies-container">
+      <h2 class="section-title">Case Studies</h2>
+
+      <div class="case-card case-study-1">
+        <div class="case-card-content">
+          <h3 class="case-title">UI String Localization & Tag Consistency</h3>
+          
+          <div class="case-row">
+            <div class="case-box">
+              <div class="case-box-header challenge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                <h4>Challenge</h4>
+              </div>
+              <p>Inconsistent tags and placeholders across UI strings for a global SaaS family.</p>
+            </div>
+            <div class="case-box">
+              <div class="case-box-header solution">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><path d="M9 18h6"></path><path d="M10 22h4"></path></svg>
+                <h4>Solution</h4>
+              </div>
+              <p>Rewrote 100k+ strings, normalized tags and placeholders, produced style guides and QA checks.</p>
+            </div>
+          </div>
+
+          <div class="case-row">
+            <div class="case-box before">
+              <div class="case-box-header before">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline><polyline points="17 18 23 18 23 12"></polyline></svg>
+                <h4>Before</h4>
+              </div>
+              <p>Placeholders mismatched, tags rendered incorrectly (hover over errors to see details)</p>
+              <div class="safari-mock">
+                <div class="safari-header">
+                  <div class="safari-dots"><div class="safari-dot red"></div><div class="safari-dot yellow"></div><div class="safari-dot green"></div></div>
+                  <div class="safari-url">software-suite.com/dev</div>
+                </div>
+                <div class="safari-content">
+                  <div style="color: var(--muted-foreground); font-weight: bold; margin-bottom: 4px;">SOURCE INPUT (ENGLISH):</div>
+                <br>  <div style="background: rgba(0,0,0,0.05); padding: 8px; border-radius: 4px; margin-bottom: 8px;">
+                    <span class="tag-bracket correct">&lt;/146&gt;</span>To fix this compliance issue <span class="tag-bracket correct">&lt;/178&gt;</span>, go to <span class="tag-bracket correct">{1}</span>Settings<span class="tag-bracket correct">{2}</span> &gt; <span class="tag-bracket correct">{3}</span>Export<span class="tag-bracket correct">{4}</span> and select the <span class="tag-bracket correct">{5}</span>Full Compliance<span class="tag-bracket correct">{6}</span> option.
+                  </div>
+                 <br> <div style="color: var(--muted-foreground); font-weight: bold; margin-bottom: 4px;">TARGET OUTPUT (BRAZILIAN PORTUGUESE):</div>
+            <br>      <div style="background: rgba(0,0,0,0.05); padding: 8px; border-radius: 4px; position: relative;">
+                    <span class="tag-pulse-red" style="position: relative;">
+                      &lt;/146&gt;
+                    </span>Para corrigir este problema de conformidade<span class="tag-pulse-red" style="position: relative;">
+                      &lt;/179&gt;
+                    </span>, vá para <span class="tag-pulse-red" style="position: relative;">
+                      {1}
+                    </span>Configurações<span class="tag-pulse-red" style="position: relative;">
+                      {3}
+                    </span> &gt; <span class="tag-pulse-red" style="position: relative;">
+                      {2}
+                    </span><span class="word error" style="position: relative;">Exportação</span><span class="tag-pulse-red" style="position: relative;">
+                      {4}
+                    </span> e selecione a opção <span class="tag-pulse-red" style="position: relative;">
+                      {5}
+                    </span>Conformidade Completa<span class="tag-pulse-red" style="position: relative;">
+                      {7}
+                    </span>.
+                  </div><br>
+                </div>
+              </div>
+            </div>
+            <div class="case-box after">
+              <div class="case-box-header after">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                <h4>After</h4>
+              </div>
+              <p>Standardized tags with contextual guidance and automated correction</p>
+              <div class="safari-mock">
+                <div class="safari-header">
+                  <div class="safari-dots"><div class="safari-dot red"></div><div class="safari-dot yellow"></div><div class="safari-dot green"></div></div>
+                  <div class="safari-url">software-suite.com/i18n-dashboard</div>
+                </div>
+                <div class="safari-content">
+                  <div style="color: var(--muted-foreground); font-weight: bold; margin-bottom: 4px;">SOURCE INPUT (ENGLISH):</div>
+                <br>  <div style="background: rgba(0,0,0,0.05); padding: 8px; border-radius: 4px; margin-bottom: 8px;">
+                    <span class="tag-bracket correct">&lt;/146&gt;</span>To fix this compliance issue <span class="tag-bracket correct">&lt;/178&gt;</span>, go to <span class="tag-bracket correct">{1}</span>Settings<span class="tag-bracket correct">{2}</span> &gt; <span class="tag-bracket correct">{3}</span>Export<span class="tag-bracket correct">{4}</span> and select the <span class="tag-bracket correct">{5}</span>Full Compliance<span class="tag-bracket correct">{6}</span> option.
+                  </div>
+                 <br> <div style="color: var(--muted-foreground); font-weight: bold; margin-bottom: 4px;">TARGET OUTPUT (BRAZILIAN PORTUGUESE):</div>
+                  <br><div id="case1-animation" style="background: rgba(0,0,0,0.05); padding: 8px; border-radius: 4px; position: relative;">
+                    <span class="tag-bracket correct" id="case1-tag1">&lt;/146&gt;</span>Para corrigir este problema de conformidade<span class="tag-bracket error" id="case1-tag2">&lt;/179&gt;</span>, vá para <span class="tag-bracket correct" id="case1-tag3">{1}</span>Configurações<span class="tag-bracket error" id="case1-tag4">{3}</span> &gt; <span class="tag-bracket error" id="case1-tag5">{2}</span><span class="word error" id="case1-word1">Exportação</span><span class="tag-bracket correct" id="case1-tag6">{4}</span> e selecione a opção <span class="tag-bracket correct" id="case1-tag7">{5}</span>Conformidade Completa<span class="tag-bracket error" id="case1-tag8">{7}</span>.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="case-row">
+            <div class="case-box results">
+              <div class="case-box-header results">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                <h4>Results</h4>
+              </div>
+              <p>Implemented comprehensive LQA that reduced tag-related errors by 85%, improving user experience across 12 language variants. Increased translation consistency by 60% and reduced QA time by 45%.</p>
+            </div>
+            <div class="case-box metrics">
+              <div class="case-box-header metrics">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                <h4>Metrics</h4>
+              </div>
+              <div class="metrics-bars">
+                <div class="metrics-bar">
+                  <div class="metrics-header">
+                    <span class="metrics-label">Error Reduction</span>
+                    <span class="metrics-value">85%</span>
+                  </div>
+                  <div class="metrics-track">
+                    <div class="metrics-fill" style="width: 85%"></div>
+                  </div>
+                </div>
+                <div class="metrics-bar">
+                  <div class="metrics-header">
+                    <span class="metrics-label">Consistency Increase</span>
+                    <span class="metrics-value">60%</span>
+                  </div>
+                  <div class="metrics-track">
+                    <div class="metrics-fill" style="width: 60%"></div>
+                  </div>
+                </div>
+                <div class="metrics-bar">
+                  <div class="metrics-header">
+                    <span class="metrics-label">QA Time Reduction</span>
+                    <span class="metrics-value">45%</span>
+                  </div>
+                  <div class="metrics-track">
+                    <div class="metrics-fill" style="width: 45%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-card-content">
+          <h3 class="case-title">MTPE Subtitle Quality Assurance</h3>
+          
+          <div class="case-row">
+            <div class="case-box">
+              <div class="case-box-header challenge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                <h4>Challenge</h4>
+              </div>
+              <p>High-volume subtitle MTPE for streaming catalog with mixed genres and cultural nuances.</p>
+            </div>
+            <div class="case-box">
+              <div class="case-box-header solution">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><path d="M9 18h6"></path><path d="M10 22h4"></path></svg>
+                <h4>Solution</h4>
+              </div>
+              <p>Built genre-aware MTPE pipelines, quality gates, and cultural adaptations for Brazilian Portuguese.</p>
+            </div>
+          </div>
+
+          <div class="case-row">
+            <div class="case-box before">
+              <div class="case-box-header before">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline><polyline points="17 18 23 18 23 12"></polyline></svg>
+                <h4>Before</h4>
+              </div>
+              <p>Literal translations with timing mismatches and annotation errors</p>
+              <div class="safari-mock">
+                <div class="safari-header">
+                  <div class="safari-dots"><div class="safari-dot red"></div><div class="safari-dot yellow"></div><div class="safari-dot green"></div></div>
+                  <div class="safari-url">ai-training.dataset/old-annotation</div>
+                </div>
+                <div id="case2-tooltips-container" class="safari-content compact" style="font-family: 'Courier New', monospace; position: relative;">
+                  <div style="color: var(--muted-foreground);">00:10:14.023 → 00:10:20.250</div>
+                  <div style="margin-top: 8px;">
+                    <span class="error-text" id="case2-error1" style="position: relative;">
+                      {A: N/A
+                      <span class="tooltip-case2" data-error="missing-actor" style="left: 60%;">missing actor</span>
+                    </span>
+                    || L: English || T: 
+                    <span class="error-text" id="case2-error2" style="position: relative;">
+                      Angry||
+                      <span class="tooltip-case2" data-error="punctuation">punctuation</span>
+                    </span>
+                    O: an8} [sub: 
+                    <span class="error-text" id="case2-error3" style="position: relative;">
+                      João
+                      <span class="tooltip-case2" data-error="misspelling">misspelling</span>
+                    </span>
+                    || action: 
+                    <span class="error-text" id="case2-error4" style="position: relative;">
+                      knoks door
+                      <span class="tooltip-case2" data-error="misspelling">misspelling</span>
+                    </span>
+                    || cap: John knocks door
+                    <span class="error-text" id="case2-error5" style="position: relative;">
+                      ||P]
+                      <span class="tooltip-case2" data-error="punctuation">punctuation</span>
+                    </span>
+                    Why do you speak to me like this?
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="case-box after">
+              <div class="case-box-header after">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                <h4>After</h4>
+              </div>
+              <p>Natural phrasing, corrected timing, improved comprehension</p>
+              <div class="safari-mock" style="margin-top: 0;">
+                <div class="safari-header">
+                  <div class="safari-dots"><div class="safari-dot red"></div><div class="safari-dot yellow"></div><div class="safari-dot green"></div></div>
+                  <div class="safari-url">ai-training.dataset/new-annotation</div>
+                </div>
+                <div class="safari-content compact" style="font-family: monospace;">
+                  <div style="color: var(--muted-foreground);">00:10:14.023 → 00:10:20.250</div>
+                  <div id="case2-typing" style="margin-top: 8px;">
+                    <span class="error-text">{A: N/A</span> || L: English || T: <span class="error-text">Angry||</span> O: an8} [sub: <span class="error-text">João</span> || action: <span class="error-text">knoks door</span>]
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="case-row">
+            <div class="case-box results">
+              <div class="case-box-header results">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                <h4>Results</h4>
+              </div>
+              <p>Reduced review time by 50% while maintaining 95%+ quality scores across drama, comedy, and documentary genres. Improved subtitle accuracy by 75% and reduced cultural adaptation errors by 65%.</p>
+            </div>
+            <div class="case-box metrics">
+              <div class="case-box-header metrics">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                <h4>Metrics</h4>
+              </div>
+              <div class="metrics-bars">
+                <div class="metrics-bar">
+                  <div class="metrics-header">
+                    <span class="metrics-label">Quality Score</span>
+                    <span class="metrics-value">95%</span>
+                  </div>
+                  <div class="metrics-track">
+                    <div class="metrics-fill" style="width: 95%"></div>
+                  </div>
+                </div>
+                <div class="metrics-bar">
+                  <div class="metrics-header">
+                    <span class="metrics-label">Review Time</span>
+                    <span class="metrics-value">50%</span>
+                  </div>
+                  <div class="metrics-track">
+                    <div class="metrics-fill" style="width: 50%"></div>
+                  </div>
+                </div>
+                <div class="metrics-bar">
+                  <div class="metrics-header">
+                    <span class="metrics-label">Accuracy Improvement</span>
+                    <span class="metrics-value">75%</span>
+                  </div>
+                  <div class="metrics-track">
+                    <div class="metrics-fill" style="width: 75%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-card-content">
+          <h3 class="case-title">AI Chatbot Content Optimization</h3>
+          
+          <div class="case-row">
+            <div class="case-box">
+              <div class="case-box-header challenge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                <h4>Challenge</h4>
+              </div>
+              <p>Fragmented knowledge base content causing poor chatbot responses and user confusion.</p>
+            </div>
+            <div class="case-box">
+              <div class="case-box-header solution">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><path d="M9 18h6"></path><path d="M10 22h4"></path></svg>
+                <h4>Solution</h4>
+              </div>
+              <p>Restructured content architecture, created conversational flows, and implemented decision trees.</p>
+            </div>
+          </div>
+
+          <div class="case-row">
+            <div class="case-box before">
+              <div class="case-box-header before">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline><polyline points="17 18 23 18 23 12"></polyline></svg>
+                <h4>Before</h4>
+              </div>
+              <p>Users navigating multiple articles to find answers</p>
+              <div class="safari-mock">
+                <div class="safari-header">
+                  <div class="safari-dots"><div class="safari-dot red"></div><div class="safari-dot yellow"></div><div class="safari-dot green"></div></div>
+                  <div class="safari-url">company.knowledge-base.com/text</div>
+                </div>
+                <div class="safari-content" style="overflow: hidden;">
+                  <div class="scroll-animation">
+                    <p style="color: var(--muted-foreground); margin-bottom: 4px;">1. Navigate to 'Client Procedures' section...</p>
+                    <p style="color: var(--muted-foreground); margin-bottom: 4px;">2. Find the link to policy renewals...</p>
+                    <p style="color: var(--muted-foreground); margin-bottom: 4px;">3. Search across different articles...</p>
+                    <p style="color: var(--muted-foreground); margin-bottom: 4px;">4. Check 'Annual Review' subsection...</p>
+                    <p style="color: var(--muted-foreground); margin-bottom: 4px;">5. Verify with legal department...</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="case-box after">
+              <div class="case-box-header after">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                <h4>After</h4>
+              </div>
+              <p>Interactive chatbot with guided decision paths <span class="hand-pointer">👆</span></p>
+              <div class="safari-mock" style="margin-top: 0;">
+                <div class="safari-header">
+                  <div class="safari-dots"><div class="safari-dot red"></div><div class="safari-dot yellow"></div><div class="safari-dot green"></div></div>
+                  <div class="safari-url">company.knowledge-base.com/chat-prototype</div>
+                </div>
+                <div id="case3-chatbot" class="safari-content">
+                  <div class="chat-message">
+                    <span style="color: var(--muted-foreground);">What are you looking for?</span>
+                  </div>
+                  <div class="chat-buttons">
+                    <button class="chat-btn" onclick="chatStep(2, 'Policy')">Policy</button>
+                    <button class="chat-btn" onclick="chatStep(2, 'Annual Review')">Annual Review</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="case-row">
+            <div class="case-box results">
+              <div class="case-box-header results">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                <h4>Results</h4>
+              </div>
+              <p>Increased first-contact resolution by 40% and reduced average handling time by 35%. Improved user satisfaction by 50% and reduced support tickets by 60% through better content organization.</p>
+            </div>
+            <div class="case-box metrics">
+              <div class="case-box-header metrics">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                <h4>Metrics</h4>
+              </div>
+              <div class="metrics-bars">
+                <div class="metrics-bar">
+                  <div class="metrics-header">
+                    <span class="metrics-label">Resolution Rate</span>
+                    <span class="metrics-value">40%</span>
+                  </div>
+                  <div class="metrics-track">
+                    <div class="metrics-fill" style="width: 40%"></div>
+                  </div>
+                </div>
+                <div class="metrics-bar">
+                  <div class="metrics-header">
+                    <span class="metrics-label">Handling Time</span>
+                    <span class="metrics-value">35%</span>
+                  </div>
+                  <div class="metrics-track">
+                    <div class="metrics-fill" style="width: 35%"></div>
+                  </div>
+                </div>
+                <div class="metrics-bar">
+                  <div class="metrics-header">
+                    <span class="metrics-label">Support Tickets</span>
+                    <span class="metrics-value">60%</span>
+                  </div>
+                  <div class="metrics-track">
+                    <div class="metrics-fill" style="width: 60%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="experience">
+    <div class="experience-container">
+      <h2 class="section-title">Work History</h2>
+      <div class="experience-card">
+        <div class="experience-header">
+          <div class="experience-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div>
+          <div class="experience-content">
+            
+            <h3>UX Writer & Content Strategist</h3>
+            <p class="experience-company">TW Business Content | Claro </p>
+            <p class="experience-period">2020–Present</p>
+          </div>
+        </div>
+        <ul>
+           <li style="margin-left:20px; margin-bottom:5px";>Tagged and annotated multilingual datasets for AI training, improving model comprehension by 40%</li>
+           <li style="margin-left:20px; margin-bottom:5px";>Conducted linguistic QA on 100+ hours of audio/video content, ensuring subtitle accuracy and timing precision</li>
+           <li style="margin-left:20px; margin-bottom:5px";>Reduced recurring linguistic issues by 60% through systematic error tracking and feedback implementation</li>
+           <li style="margin-left:20px; margin-bottom:5px";>Created and refined conversational datasets to enhance AI chatbot responses, improving engagement by 35%</li>
+           <li style="margin-left:20px; margin-bottom:5px";>Reviewed and corrected 10,000+ AI-generated outputs, ensuring grammatical accuracy and cultural relevance</li>
+        </ul>
+     
+    
+     
+    </div>
+<div class="experience-card">
+        <div class="experience-header">
+          <div class="experience-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div>
+          <div class="experience-content">
+
+<h3>AI Content Rewriter & Linguistic QA Specialist</h3>
+            <p class="experience-company">Freelance | Multiple International Clients</p>
+            <p class="experience-period">Mar 2015–Present | Remote</p>
+          </div>
+        </div>
+        <ul>
+          <li style="margin-left:20px; margin-bottom:5px";>Rewrote and refined 1M+ words of AI-generated content in PT-BR, ensuring natural readability, proper tone, and cultural authenticity</li>
+           <li style="margin-left:20px; margin-bottom:5px";>Enhanced coherence and contextual relevance of machine-translated content, improving comprehension by 85% through strategic rewriting</li>
+           <li style="margin-left:20px; margin-bottom:5px";>Evaluated and corrected AI outputs for accuracy, grammar, syntax, and cultural appropriateness across 100+ projects</li>
+           <li style="margin-left:20px; margin-bottom:5px";>Humanized AI-generated text while preserving intended meaning, achieving 95% client satisfaction rate</li>
+           <li style="margin-left:20px; margin-bottom:5px";>Maintained consistency in language style across project-specific guidelines, reducing revision cycles by 30%</li>
+        </ul>
+      </div>
+        </section>
+
+  <section id="education" class="education">
+    <div class="education-container">
+      <h2 class="section-title">Education</h2>
+      <div class="education-card">
+        <div class="education-header">
+          <div class="education-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg></div>
+          <div class="education-content">
+            <h3>BA Portuguese & English</h3>
+            <p class="education-institution">University of São Paulo</p>
+            <p class="education-year">2015–2019</p>
+          </div>
+        </div>
+        <ul>
+           <li style="margin-left:20px";>Focus: Linguistics, Translation, Cultural Studies</li>
+        </ul>
+      </div>
+      <div class="education-card">
+        <div class="education-header">
+          <div class="education-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg></div>
+          <div class="education-content">
+            <h3>Associate Degree in Information Technology</h3>
+            <p class="education-institution">Marechal Rondon School</p>
+            <p class="education-year">2007–2009</p>
+          </div>
+        </div>
+        <ul>
+          <li style="margin-left:20px";>Focus: Data Management, Basic Programming</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="skills">
+    <div class="skills-container">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-grid">
+        <div class="skills-column hard">
+          <h3>Hard Skills</h3>
+          <div class="skills-tags">
+            <span class="skill-tag">UX Writing</span>
+            <span class="skill-tag">Content Strategy</span>
+            <span class="skill-tag">Technical Writing</span>
+            <span class="skill-tag">Documentation</span>
+            <span class="skill-tag">Content Operations</span>
+            <span class="skill-tag">SEO</span>
+            <span class="skill-tag">Information Architecture</span>
+            <span class="skill-tag">Localization</span>
+          </div>
+        </div>
+        <div class="skills-column soft">
+          <h3>Soft Skills</h3>
+          <div class="skills-tags">
+            <span class="skill-tag">Cross-functional Collaboration</span>
+            <span class="skill-tag">Strategic Thinking</span>
+            <span class="skill-tag">Problem Solving</span>
+            <span class="skill-tag">Stakeholder Management</span>
+            <span class="skill-tag">Data Analysis</span>
+            <span class="skill-tag">Adaptability</span>
+            <span class="skill-tag">Attention to Detail</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tools" class="tools">
+    <div class="tools-container">
+      <h2 class="section-title">Tools</h2>
+      <div class="tools-tags">
+        <span class="tool-tag">Figma</span>
+        <span class="tool-tag">Notion</span>
+        <span class="tool-tag">Confluence</span>
+        <span class="tool-tag">Google Analytics</span>
+        <span class="tool-tag">Contentful</span>
+        <span class="tool-tag">GitHub</span>
+        <span class="tool-tag">Jira</span>
+        <span class="tool-tag">Phrase</span>
+        <span class="tool-tag">memoQ</span>
+        <span class="tool-tag">Smartcat</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="languages" class="languages">
+    <div class="languages-container">
+      <h2 class="section-title">Languages</h2>
+      <div class="languages-grid">
+        <div class="language-card">
+          <span class="flag-icon">🇧🇷</span>
+          <div>
+            <p class="language-name">Portuguese</p>
+            <p class="language-level">Native</p>
+          </div>
+        </div>
+        <div class="language-card">
+          <span class="flag-icon">🇺🇸</span>
+          <div>
+            <p class="language-name">English</p>
+            <p class="language-level">C1 - Advanced</p>
+          </div>
+        </div>
+        <div class="language-card">
+          <span class="flag-icon">🇫🇷</span>
+          <div>
+            <p class="language-name">French</p>
+            <p class="language-level">B2 - Upper Intermediate</p>
+          </div>
+        </div>
+        <div class="language-card">
+          <span class="flag-icon">🇪🇸</span>
+          <div>
+            <p class="language-name">Spanish</p>
+            <p class="language-level">B1 - Intermediate</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="collaborations" class="collaborations">
+    <div class="collaborations-container">
+      <h2 class="section-title">Collaborations</h2>
+      <div class="collab-row">
+        <div class="collab-track">
+          <div class="collab-logo">
+            <img src="https://raw.githubusercontent.com/wastehabit/portbitget/main/logo-vsivoxmundi.png" alt="Vox Mundi logo">
+          </div>
+          <div class="collab-logo">
+            <img src="https://raw.githubusercontent.com/wastehabit/portbitget/main/iyuno%20logo.webp" alt="Iyuno logo">
+          </div>
+          <div class="collab-logo">
+            <img src="https://raw.githubusercontent.com/wastehabit/portbitget/main/acclaro_logo.png" alt="acclaro logo">
+          </div>
+          <div class="collab-logo">
+            <img src="https://raw.githubusercontent.com/wastehabit/portbitget/main/itcglobal.png" alt="ITC Global logo">
+          </div>
+          <div class="collab-logo">
+            <img src="https://raw.githubusercontent.com/wastehabit/portbitget/main/tikinetlogo3.png" alt="Tikinet logo">
+          </div>
+          <div class="collab-logo">
+            <img src="https://raw.githubusercontent.com/wastehabit/portbitget/main/saga_logo.webp" alt="Saga logo">
+          </div>
+          <div class="collab-logo">
+            <img src="https://raw.githubusercontent.com/wastehabit/portbitget/main/moshimedialogo_fundo.png" alt="Moshi Media logo">
+          </div>
+          <div class="collab-logo">
+            <img src="https://raw.githubusercontent.com/wastehabit/portbitget/main/Claro-logo-logotype.png" alt="claro logo">
+          </div>
+          <div class="collab-logo">
+            <img src="https://raw.githubusercontent.com/wastehabit/portbitget/main/logo_tw_cb1.png" alt="TW logo">
+          </div>
+          <!-- Duplicados para animação contínua -->
+          <div class="collab-logo">
+            <img src="https://raw.githubusercontent.com/wastehabit/portbitget/main/vsivoxmundi-logo.webp" alt="Vox Mundi logo">
+          </div>
+          <div class="collab-logo">
+            <img src="https://raw.githubusercontent.com/wastehabit/portbitget/main/iyuno%20logo.webp" alt="Iyuno logo">
+          </div>
+          <div class="collab-logo">
+            <img src="https://raw.githubusercontent.com/wastehabit/portbitget/main/acclaro_logo.png" alt="acclaro logo">
+          </div>
+          <div class="collab-logo">
+            <img src="https://raw.githubusercontent.com/wastehabit/portbitget/main/itcglobal.png" alt="ITC Global logo">
+          </div>
+          <div class="collab-logo">
+            <img src="https://raw.githubusercontent.com/wastehabit/portbitget/main/tikinetlogo3.png" alt="Tikinet logo">
+          </div>
+          <div class="collab-logo">
+            <img src="https://raw.githubusercontent.com/wastehabit/portbitget/main/saga_logo.webp" alt="Saga logo">
+          </div>
+          <div class="collab-logo">
+            <img src="https://raw.githubusercontent.com/wastehabit/portbitget/main/claro logo.jpeg" alt="claro logo">
+          </div>
+          <div class="collab-logo">
+            <img src="https://raw.githubusercontent.com/wastehabit/portbitget/main/moshimedialogo_fundo.png" alt="Moshi Media logo">
+          </div>
+          <div class="collab-logo">
+            <img src="https://raw.githubusercontent.com/wastehabit/portbitget/main/claro logo.jpeg" alt="Moshi Media logo">
+          </div>
+          <div class="collab-logo">
+            <img src="https://raw.githubusercontent.com/wastehabit/portbitget/main/logo_tw_cb1.png" alt="logo_tw_cb1.png">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact" class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Services</h4>
+        <div class="footer-divider"></div>
+        <ul class="footer-services">
+          <li>AI Rewriting</li>
+          <li>Translation</li>
+          <li>Localization</li>
+          <li>Subtitling</li>
+          <li>Linguistic Services</li>
+        </ul>
+      </div>
+       
+      <div class="footer-section">
+        <h4>Contact Me</h4>
+        <div class="footer-divider"></div>
+        <ul class="footer-contact">
+          <li><a href="https://linkedin.com/in/arianelesnyak" target="_blank">LinkedIn</a></li>
+          <li><a href="mailto:ariane.etimo@gmail.com">E-mail</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-divider-line"></div>
+    
+    <div class="footer-copyright">
+      © 2025 Ariane Lesnyak | Inspired by Copyright © 2025 MoniSa Enterprise Pvt Ltd
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <script>
+    // Back to Top Button
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Case Study 1: Animação de correção de tags
+    function animateCase1Correction() {
+      const errors = [
+        { id: 'case1-tag2', current: '&lt;/179&gt;', correct: '</178>', type: 'tag' },
+        { id: 'case1-tag4', current: '{3}', correct: '{2}', type: 'tag' },
+        { id: 'case1-tag5', current: '{2}', correct: '{3}', type: 'tag' },
+        { id: 'case1-word1', current: 'Exportação', correct: 'Exportar', type: 'word' },
+        { id: 'case1-tag8', current: '{7}', correct: '{6}', type: 'tag' }
+      ];
+      
+      const correctTags = ['case1-tag1', 'case1-tag3', 'case1-tag6', 'case1-tag7'];
+      
+      let currentErrorIndex = 0;
+      let isFixing = false;
+      const typingSpeed = 100;
+      const pauseBetweenErrors = 800;
+      
+      function startAnimation() {
+        if (isFixing || currentErrorIndex >= errors.length) return;
+        
+        const error = errors[currentErrorIndex];
+        const element = document.getElementById(error.id);
+        
+        if (!element) {
+          moveToNextError();
+          return;
+        }
+
+        isFixing = true;
+        element.classList.add('fixing');
+        
+        if (error.type === 'word') {
+          fixWord(element, error);
+        } else {
+          fixTag(element, error);
+        }
+      }
+
+      function fixTag(element, error) {
+        let currentText = error.current;
+        let index = currentText.length - 1;
+        
+        function deleteCharacter() {
+          if (index > 0) {
+            currentText = currentText.substring(0, index);
+            element.textContent = currentText;
+            index--;
+            setTimeout(deleteCharacter, typingSpeed * 1.5);
+          } else {
+            typeCorrectText(element, error);
+          }
+        }
+        
+        deleteCharacter();
+      }
+
+      function fixWord(element, error) {
+        let currentText = error.current;
+        
+        function deleteCharacters() {
+          if (currentText.length > 6) {
+            currentText = currentText.substring(0, currentText.length - 1);
+            element.textContent = currentText;
+            setTimeout(deleteCharacters, typingSpeed * 1.5);
+          } else {
+            typeWordCorrection(element, error);
+          }
+        }
+        
+        deleteCharacters();
+      }
+
+      function typeCorrectText(element, error) {
+        const correctText = error.correct;
+        let index = 0;
+        let currentText = '';
+        
+        function typeCharacter() {
+          if (index < correctText.length) {
+            currentText += correctText.charAt(index);
+            element.textContent = currentText;
+            index++;
+            setTimeout(typeCharacter, typingSpeed);
+          } else {
+            finishFix(element, error);
+          }
+        }
+        
+        typeCharacter();
+      }
+
+      function typeWordCorrection(element, error) {
+        const correction = 'ar';
+        let index = 0;
+        let currentText = element.textContent;
+        
+        function typeCharacter() {
+          if (index < correction.length) {
+            currentText += correction.charAt(index);
+            element.textContent = currentText;
+            index++;
+            setTimeout(typeCharacter, typingSpeed);
+          } else {
+            finishFix(element, error);
+          }
+        }
+        
+        typeCharacter();
+      }
+
+      function finishFix(element, error) {
+        setTimeout(() => {
+          element.classList.remove('error', 'fixing');
+          
+          if (error.type === 'word') {
+            element.classList.remove('word', 'error');
+            element.classList.add('word', 'correct');
+          } else {
+            element.classList.add('correct');
+          }
+          
+          isFixing = false;
+          moveToNextError();
+        }, 500);
+      }
+
+      function moveToNextError() {
+        currentErrorIndex++;
+        
+        if (currentErrorIndex >= errors.length) {
+          // Reinicia a animação após 3 segundos
+          setTimeout(() => {
+            resetCase1Errors();
+            currentErrorIndex = 0;
+            setTimeout(startAnimation, 1500);
+          }, 3000);
+        } else {
+          setTimeout(startAnimation, pauseBetweenErrors);
+        }
+      }
+
+      function resetCase1Errors() {
+        errors.forEach(error => {
+          const element = document.getElementById(error.id);
+          if (element) {
+            element.textContent = error.current;
+            element.classList.remove('correct', 'fixing');
+            if (error.type === 'word') {
+              element.classList.remove('word', 'correct');
+              element.classList.add('word', 'error');
+            } else {
+              element.classList.add('error');
+            }
+          }
+        });
+        
+        correctTags.forEach(tagId => {
+          const tag = document.getElementById(tagId);
+          if (tag) {
+            tag.classList.remove('error');
+            tag.classList.add('correct');
+          }
+        });
+      }
+
+      // Iniciar animação
+      correctTags.forEach(tagId => {
+        const tag = document.getElementById(tagId);
+        if (tag) {
+          tag.classList.remove('error');
+          tag.classList.add('correct');
+        }
+      });
+
+      setTimeout(startAnimation, 1000);
+    }
+
+    // Case Study 2: Tooltips automáticos sequenciais
+    function startCase2TooltipAnimation() {
+      const tooltips = document.querySelectorAll('#case2-tooltips-container .tooltip-case2');
+      if (tooltips.length === 0) return;
+      
+      let currentIndex = 0;
+      const tooltipDuration = 1500;
+      const transitionDuration = 500;
+      
+      function showNextTooltip() {
+        // Esconde todos os tooltips
+        tooltips.forEach(tooltip => {
+          tooltip.classList.remove('show');
+        });
+        
+        // Mostra o tooltip atual
+        if (currentIndex < tooltips.length) {
+          const currentTooltip = tooltips[currentIndex];
+          currentTooltip.classList.add('show');
+          
+          // Avança para o próximo tooltip após a duração
+          setTimeout(() => {
+            currentTooltip.classList.remove('show');
+            currentIndex++;
+            
+            if (currentIndex >= tooltips.length) {
+              // Reinicia após uma pausa
+              setTimeout(() => {
+                currentIndex = 0;
+                showNextTooltip();
+              }, 1000);
+            } else {
+              setTimeout(showNextTooltip, transitionDuration);
+            }
+          }, tooltipDuration);
+        }
+      }
+      
+      // Inicia a animação após um breve delay
+      setTimeout(showNextTooltip, 1000);
+    }
+
+    // Case Study 2: Typing animation for subtitle correction
+    function animateCase2Typing() {
+      const container = document.getElementById('case2-typing');
+      if (!container) return;
+      
+      const originalHTML = container.innerHTML;
+      const corrections = [
+        { find: '{A: N/A', replace: '<span class="corrected-text">{A: Joe Doe</span>' },
+        { find: 'Angry||', replace: '<span class="corrected-text">Angry ||</span>' },
+        { find: 'João', replace: '<span class="corrected-text">John</span>' },
+        { find: 'knoks door', replace: '<span class="corrected-text">knocks on door</span>' }
+      ];
+      
+      let step = 0;
+      const interval = setInterval(() => {
+        if (step >= corrections.length) {
+          clearInterval(interval);
+          // Reseta após 3 segundos e reinicia
+          setTimeout(() => {
+            container.innerHTML = originalHTML;
+            setTimeout(animateCase2Typing, 1000);
+          }, 3000);
+          return;
+        }
+        
+        const currentHTML = container.innerHTML;
+        container.innerHTML = currentHTML.replace(corrections[step].find, corrections[step].replace);
+        step++;
+      }, 800);
+    }
+
+    // Case Study 3: Chatbot interaction
+    let chatCurrentStep = 1;
+    let chatSelectedPath = '';
+    const chatSteps = {
+      1: {
+        message: 'What are you looking for?',
+        buttons: [
+          { text: 'Policy', value: 'Policy' },
+          { text: 'Annual Review', value: 'Annual Review' }
+        ]
+      },
+      2: {
+        Policy: {
+          message: 'Which policy type?',
+          buttons: [
+            { text: 'Renewal', value: 'Policy Renewal' },
+            { text: 'Amendment', value: 'Policy Amendment' },
+            { text: 'Cancellation', value: 'Policy Cancellation' }
+          ]
+        },
+        'Annual Review': {
+          message: 'Annual review options:',
+          buttons: [
+            { text: 'Schedule', value: 'Schedule Review' },
+            { text: 'Documents', value: 'Review Documents' },
+            { text: 'Process', value: 'Review Process' }
+          ]
+        }
+      },
+      3: {
+        'Policy Renewal': {
+          message: 'Policy renewal requires: 1) Current policy number 2) Updated information 3) Payment details. Would you like to proceed?',
+          buttons: [
+            { text: 'Proceed to Renewal', value: 'proceed', class: 'chat-btn-blue' },
+            { text: 'Start again', value: 'restart', class: 'chat-btn-blue' }
+          ]
+        },
+        'Policy Amendment': {
+          message: 'For policy amendments, please provide: 1) Policy number 2) Changes required 3) Effective date.',
+          buttons: [
+            { text: 'Submit Amendment', value: 'submit', class: 'chat-btn-blue' },
+            { text: 'Start again', value: 'restart', class: 'chat-btn-blue' }
+          ]
+        },
+        'Policy Cancellation': {
+          message: 'Cancellation requires: 1) Policy number 2) Reason for cancellation 3) Effective date.',
+          buttons: [
+            { text: 'Request Cancellation', value: 'cancel', class: 'chat-btn-blue' },
+            { text: 'Start again', value: 'restart', class: 'chat-btn-blue' }
+          ]
+        },
+        'Schedule Review': {
+          message: 'Schedule available for: Next week (3 slots), Next month (12 slots). Need specific date?',
+          buttons: [
+            { text: 'Book Slot', value: 'book', class: 'chat-btn-blue' },
+            { text: 'Start again', value: 'restart', class: 'chat-btn-blue' }
+          ]
+        },
+        'Review Documents': {
+          message: 'Required documents: 1) Annual report 2) Financial statements 3) Compliance checklist.',
+          buttons: [
+            { text: 'Upload Documents', value: 'upload', class: 'chat-btn-blue' },
+            { text: 'Start again', value: 'restart', class: 'chat-btn-blue' }
+          ]
+        },
+        'Review Process': {
+          message: 'Review process steps: 1) Document submission 2) Committee review 3) Feedback 4) Final approval.',
+          buttons: [
+            { text: 'Begin Process', value: 'begin', class: 'chat-btn-blue' },
+            { text: 'Start again', value: 'restart', class: 'chat-btn-blue' }
+          ]
+        }
+      }
+    };
+
+    function chatStep(next, selection = '') {
+      const container = document.getElementById('case3-chatbot');
+      if (!container) return;
+      
+      if (selection === 'restart') {
+        chatCurrentStep = 1;
+        chatSelectedPath = '';
+      } else if (selection) {
+        chatSelectedPath = selection;
+        chatCurrentStep = next;
+      } else {
+        chatCurrentStep = next;
+      }
+      
+      let stepData;
+      if (chatCurrentStep === 1) {
+        stepData = chatSteps[1];
+      } else if (chatCurrentStep === 2) {
+        stepData = chatSteps[2][chatSelectedPath];
+      } else if (chatCurrentStep === 3) {
+        stepData = chatSteps[3][chatSelectedPath];
+      } else {
+        chatCurrentStep = 1;
+        stepData = chatSteps[1];
+      }
+      
+      const buttonsHTML = stepData.buttons.map(btn => 
+        `<button class="chat-btn ${btn.class || ''}" onclick="chatStep(${chatCurrentStep + 1}, '${btn.value}')">${btn.text}</button>`
+      ).join('');
+      
+      container.innerHTML = `
+        <div class="chat-message">
+          <span style="color: var(--muted-foreground);">${stepData.message}</span>
+        </div>
+        <div class="chat-buttons">${buttonsHTML}</div>
+      `;
+    }
+
+    // Inicia animações quando a página carrega
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(animateCase1Correction, 1000);
+      setTimeout(animateCase2Typing, 1500);
+      setTimeout(startCase2TooltipAnimation, 2000);
+    });
+  </script>
+</body>
+</html>
